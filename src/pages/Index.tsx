@@ -269,15 +269,15 @@ const Index = () => {
       </section>
 
       {/* PARTNER MARQUEE */}
-      <section className="border-y border-border/50 bg-card/30 py-8">
-        <p className="mb-6 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          Carrier network
+      <section className="border-y border-border/40 py-10">
+        <p className="mb-7 text-center text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          Trusted by 40+ verified European carriers
         </p>
-        <div className="relative overflow-hidden">
-          <div className="flex w-max animate-marquee gap-16 px-8">
+        <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_15%,#000_85%,transparent)]">
+          <div className="flex w-max animate-marquee gap-20 px-8">
             {[...Array(2)].flatMap((_, i) =>
               ["DHL", "FedEx", "UPS", "Maersk", "DSV", "Kuehne+Nagel", "DB Schenker", "GLS", "TNT"].map((p) => (
-                <span key={`${i}-${p}`} className="text-2xl font-semibold tracking-tight text-muted-foreground/60">
+                <span key={`${i}-${p}`} className="text-xl font-medium tracking-tight text-muted-foreground/40">
                   {p}
                 </span>
               ))
@@ -516,13 +516,13 @@ const ModeTab = ({
   <button
     type="button"
     onClick={onClick}
-    className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all sm:flex-none sm:px-5 ${
+    className={`flex flex-1 items-center justify-center gap-2 rounded-[18px] px-4 py-2 text-[13px] font-medium transition-all sm:flex-none sm:px-5 ${
       active
-        ? "bg-card text-foreground shadow-sm"
+        ? "bg-card text-foreground shadow-[0_1px_2px_rgba(0,0,0,0.3)]"
         : "text-muted-foreground hover:text-foreground"
     }`}
   >
-    <Icon className={`h-4 w-4 ${active ? "text-brand" : ""}`} />
+    <Icon className={`h-3.5 w-3.5 ${active ? "text-brand" : ""}`} strokeWidth={1.75} />
     {label}
   </button>
 );
@@ -841,9 +841,9 @@ const EmailMode = () => {
 };
 
 const Stat = ({ value, label }: { value: string; label: string }) => (
-  <div className="rounded-2xl border border-border bg-card p-8">
-    <div className="font-serif text-6xl text-brand md:text-7xl">{value}</div>
-    <div className="mt-2 text-sm uppercase tracking-widest text-muted-foreground">{label}</div>
+  <div className="rounded-3xl border border-border/60 bg-card/40 p-10 backdrop-blur-sm">
+    <div className="font-serif text-6xl tracking-tight text-foreground md:text-7xl">{value}</div>
+    <div className="mt-3 text-[12px] uppercase tracking-[0.18em] text-muted-foreground">{label}</div>
   </div>
 );
 

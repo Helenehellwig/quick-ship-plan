@@ -8,35 +8,45 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Movitus — Dark cinematic with cyan brand #14d1de */
+    --background: 200 30% 5%;
+    --foreground: 180 20% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 200 28% 8%;
+    --card-foreground: 180 20% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 200 28% 8%;
+    --popover-foreground: 180 20% 96%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 184 73% 47%;
+    --primary-foreground: 200 40% 6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 200 25% 12%;
+    --secondary-foreground: 180 20% 96%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 200 20% 14%;
+    --muted-foreground: 195 12% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 184 73% 47%;
+    --accent-foreground: 200 40% 6%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 180 20% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 200 22% 16%;
+    --input: 200 25% 12%;
+    --ring: 184 73% 47%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Brand tokens */
+    --brand: 184 73% 47%;
+    --brand-glow: 184 95% 60%;
+    --surface-elevated: 200 26% 10%;
+    --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 0%, hsl(184 73% 47% / 0.18), transparent 60%), linear-gradient(180deg, hsl(200 35% 4%), hsl(200 30% 6%));
+    --gradient-brand: linear-gradient(135deg, hsl(184 73% 47%), hsl(184 95% 60%));
+    --shadow-brand: 0 20px 60px -20px hsl(184 73% 47% / 0.5);
+    --shadow-card: 0 30px 80px -30px hsl(200 50% 0% / 0.7);
 
     --sidebar-background: 0 0% 98%;
 

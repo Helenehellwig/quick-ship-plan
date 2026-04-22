@@ -2,6 +2,15 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   ArrowRight,
   Box,
@@ -16,12 +25,57 @@ import {
   CheckCircle2,
   Zap,
   Globe,
+  Mail,
+  User,
+  FileText,
+  AlertTriangle,
+  Sparkles,
+  Plus,
+  Trash2,
+  Copy,
 } from "lucide-react";
 
-type ShipMode = "parcel" | "pallet" | "freight";
+type FormMode = "form" | "email";
+
+type Pkg = {
+  id: string;
+  quantity: string;
+  length: string;
+  width: string;
+  height: string;
+  weight: string;
+  packageType: string;
+  description: string;
+  unstackable: boolean;
+};
+
+const newPkg = (): Pkg => ({
+  id: crypto.randomUUID(),
+  quantity: "",
+  length: "",
+  width: "",
+  height: "",
+  weight: "",
+  packageType: "",
+  description: "",
+  unstackable: false,
+});
 
 const Index = () => {
-  const [mode, setMode] = useState<ShipMode>("parcel");
+  const [mode, setMode] = useState<FormMode>("form");
+  const [packages, setPackages] = useState<Pkg[]>([newPkg()]);
+
+  const updatePkg = (id: string, patch: Partial<Pkg>) =>
+    setPackages((p) => p.map((pk) => (pk.id === id ? { ...pk, ...patch } : pk)));
+  const removePkg = (id: string) =>
+    setPackages((p) => (p.length === 1 ? p : p.filter((pk) => pk.id !== id)));
+  const addPkg = () => setPackages((p) => [...p, newPkg()]);
+
+  const totalWeight = packages.reduce((sum, p) => {
+    const q = parseFloat(p.quantity) || 0;
+    const w = parseFloat(p.weight) || 0;
+    return sum + q * w;
+  }, 0);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">

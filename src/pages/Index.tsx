@@ -80,25 +80,25 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* NAV */}
-      <header className="relative z-30">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
-          <a href="#" className="flex items-center gap-2">
-            <div className="grid h-8 w-8 place-items-center rounded-md bg-brand text-primary-foreground">
-              <Box className="h-4 w-4" strokeWidth={2.5} />
+      <header className="sticky top-0 z-40 border-b border-border/40 bg-background/70 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
+          <a href="#" className="flex items-center gap-2.5">
+            <div className="grid h-7 w-7 place-items-center rounded-full bg-brand/10 ring-1 ring-brand/30">
+              <span className="h-2 w-2 rounded-full bg-brand" />
             </div>
-            <span className="text-lg font-semibold tracking-tight">movitus</span>
+            <span className="text-[15px] font-medium tracking-tight">Movitus</span>
           </a>
-          <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
+          <nav className="hidden items-center gap-8 text-[13px] text-muted-foreground md:flex">
             <a href="#how" className="transition-colors hover:text-foreground">How it works</a>
             <a href="#services" className="transition-colors hover:text-foreground">Services</a>
             <a href="#why" className="transition-colors hover:text-foreground">Why Movitus</a>
             <a href="#track" className="transition-colors hover:text-foreground">Track</a>
           </nav>
-          <div className="flex items-center gap-3">
-            <a href="#" className="hidden text-sm text-muted-foreground transition-colors hover:text-foreground md:block">
+          <div className="flex items-center gap-5">
+            <a href="#" className="hidden text-[13px] text-muted-foreground transition-colors hover:text-foreground md:block">
               Sign in
             </a>
-            <Button size="sm" className="bg-brand text-primary-foreground hover:bg-brand/90">
+            <Button size="sm" className="rounded-full bg-foreground text-background hover:bg-foreground/90 px-4 text-[13px] font-medium">
               Get a quote
             </Button>
           </div>
@@ -109,30 +109,30 @@ const Index = () => {
       <section className="relative">
         {/* Backdrop layers */}
         <div className="pointer-events-none absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} />
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-60" />
-        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[600px] w-[1100px] -translate-x-1/2 rounded-full bg-brand/20 blur-[140px]" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-grid" />
+        <div className="pointer-events-none absolute left-1/2 top-[-10%] -z-10 h-[700px] w-[1100px] -translate-x-1/2 rounded-full bg-brand/10 blur-[160px]" />
 
-        <div className="mx-auto max-w-7xl px-6 pb-24 pt-12 lg:pt-20">
+        <div className="mx-auto max-w-6xl px-6 pb-28 pt-20 lg:pt-28">
           {/* Eyebrow */}
-          <div className="mx-auto mb-8 flex w-fit items-center gap-2 rounded-full border border-border bg-card/50 px-4 py-1.5 backdrop-blur">
-            <span className="relative flex h-2 w-2">
+          <div className="mx-auto mb-7 flex w-fit items-center gap-2 text-[12px] font-medium tracking-wide text-brand">
+            <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-pulse-glow rounded-full bg-brand opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
             </span>
-            <span className="text-xs font-medium tracking-wide text-muted-foreground">
-              Verified European carriers · No commitment until you accept
-            </span>
+            <span className="uppercase tracking-[0.18em]">Movitus Freight Platform</span>
           </div>
 
-          <h1 className="mx-auto max-w-4xl text-center text-balance text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl">
-            Ship smarter.{" "}
-            <span className="font-serif italic text-brand">Carriers compete.</span>
+          <h1 className="mx-auto max-w-4xl text-center text-balance text-5xl font-medium leading-[1.02] tracking-display md:text-7xl lg:text-[5.5rem]">
+            We help you pick
             <br />
-            You pick the price.
+            the <span className="font-serif italic font-normal text-brand">best carrier</span>
+            <span className="text-muted-foreground">.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-center text-lg text-muted-foreground md:text-xl">
-            Submit your shipment in 60 seconds. Verified European carriers bid
-            for your freight. You get the best rate — no hidden fees.
+          <p className="mx-auto mt-7 max-w-2xl text-center text-lg font-light leading-relaxed text-muted-foreground md:text-xl">
+            Tell us where it's going. Verified European carriers bid for your freight,
+            and we recommend the best one — on price, service and timing.
+            <br className="hidden md:block" />
+            <span className="text-foreground/70">No account. No commitment. No hidden fees.</span>
           </p>
 
           {/* QUOTE FORM */}

@@ -136,17 +136,17 @@ const Index = () => {
           </p>
 
           {/* QUOTE FORM */}
-          <div className="mx-auto mt-12 max-w-5xl">
+          <div className="mx-auto mt-14 max-w-4xl">
             <div
-              className="relative rounded-2xl border border-border bg-card/80 p-2 backdrop-blur-xl"
-              style={{ boxShadow: "var(--shadow-card)" }}
+              className="relative rounded-[28px] border border-white/[0.06] bg-card/60 p-1.5 backdrop-blur-2xl"
+              style={{ boxShadow: "0 1px 0 hsl(180 30% 100% / 0.04) inset, 0 50px 100px -30px hsl(200 60% 0% / 0.6)" }}
             >
               {/* Mode tabs: Form vs Email */}
-              <div className="flex items-center gap-1 rounded-xl bg-muted/40 p-1">
+              <div className="flex items-center gap-1 rounded-[22px] bg-muted/30 p-1">
                 <ModeTab icon={FileText} label="Fill form" active={mode === "form"} onClick={() => setMode("form")} />
                 <ModeTab icon={Mail} label="Send by email" active={mode === "email"} onClick={() => setMode("email")} />
                 <div className="ml-auto hidden items-center gap-2 px-3 text-xs text-muted-foreground sm:flex">
-                  <Zap className="h-3.5 w-3.5 text-brand" />
+                  <Zap className="h-3 w-3 text-brand" />
                   Bids in 24–48h · No commitment
                 </div>
               </div>
@@ -226,8 +226,8 @@ const Index = () => {
 
                   {/* Totals + submit */}
                   <div className="md:col-span-12 mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="text-sm text-muted-foreground">
-                      Total weight:{" "}
+                    <div className="text-[13px] text-muted-foreground">
+                      Total weight{" "}
                       <span className="font-mono font-medium text-foreground">
                         {totalWeight.toLocaleString(undefined, { maximumFractionDigits: 2 })} kg
                       </span>{" "}
@@ -236,10 +236,10 @@ const Index = () => {
                     <Button
                       type="submit"
                       size="lg"
-                      className="group h-14 w-full bg-brand text-primary-foreground hover:bg-brand/90 glow-brand text-base font-semibold sm:w-auto sm:px-8"
+                      className="group h-12 w-full rounded-full bg-brand text-primary-foreground hover:bg-brand/90 text-[14px] font-medium tracking-tight sm:w-auto sm:px-7"
                     >
-                      Submit shipment request
-                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                      Find my best carrier
+                      <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                     </Button>
                   </div>
                 </form>
@@ -247,19 +247,22 @@ const Index = () => {
             </div>
 
             {/* trust row */}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Shield className="h-4 w-4 text-brand" /> Verified carriers only
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-brand" /> Bids in 24–48h
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-brand" /> No account needed
-              </div>
-              <div className="flex items-center gap-2">
-                <Headphones className="h-4 w-4 text-brand" /> Zero commitment
-              </div>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-[12.5px] text-muted-foreground">
+              <span className="flex items-center gap-1.5">
+                <Shield className="h-3.5 w-3.5" /> Verified carriers only
+              </span>
+              <span className="text-border">·</span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5" /> Bids in 24–48h
+              </span>
+              <span className="text-border">·</span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5" /> No account needed
+              </span>
+              <span className="text-border">·</span>
+              <span className="flex items-center gap-1.5">
+                <Headphones className="h-3.5 w-3.5" /> Zero commitment
+              </span>
             </div>
           </div>
         </div>

@@ -530,11 +530,43 @@ const FormField = ({
   placeholder,
   type = "text",
   className = "",
+  required = false,
 }: {
   icon: typeof MapPin;
   label: string;
   placeholder?: string;
   type?: string;
+  className?: string;
+  required?: boolean;
+}) => (
+  <div
+    className={`group relative rounded-xl border border-transparent bg-secondary/40 px-4 py-3 transition-colors focus-within:border-brand/40 focus-within:bg-secondary/60 ${className}`}
+  >
+    <Label className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+      <Icon className="h-3 w-3" />
+      {label}
+      {required && <span className="text-brand">*</span>}
+    </Label>
+    <Input
+      type={type}
+      placeholder={placeholder}
+      required={required}
+      className="mt-1 h-7 border-0 bg-transparent p-0 text-base font-medium text-foreground placeholder:text-muted-foreground/50 focus-visible:ring-0 focus-visible:ring-offset-0"
+    />
+  </div>
+);
+
+const SelectField = ({
+  icon: Icon,
+  label,
+  placeholder,
+  options,
+  className = "",
+}: {
+  icon: typeof MapPin;
+  label: string;
+  placeholder?: string;
+  options: string[];
   className?: string;
 }) => (
   <div
@@ -544,13 +576,266 @@ const FormField = ({
       <Icon className="h-3 w-3" />
       {label}
     </Label>
-    <Input
-      type={type}
-      placeholder={placeholder}
-      className="mt-1 h-7 border-0 bg-transparent p-0 text-base font-medium text-foreground placeholder:text-muted-foreground/50 focus-visible:ring-0 focus-visible:ring-offset-0"
-    />
+    <Select>
+      <SelectTrigger className="mt-1 h-7 border-0 bg-transparent p-0 text-base font-medium text-foreground focus:ring-0 focus:ring-offset-0 [&>span]:text-foreground data-[placeholder]:[&>span]:text-muted-foreground/50">
+        <SelectValue placeholder={placeholder} />
+      </SelectTrigger>
+      <SelectContent>
+        {options.map((o) => (
+          <SelectItem key={o} value={o}>
+            {o}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
   </div>
 );
+
+const PackageBlock = ({
+  index,
+  pkg,
+  canRemove,
+  onChange,
+  onRemove,
+}: {
+  index: number;
+  pkg: Pkg;
+  canRemove: boolean;
+  onChange: (patch: Partial<Pkg>) => void;
+  onRemove: () => void;
+}) => {
+  const lineWeight =
+    (parseFloat(pkg.quantity) || 0) * (parseFloat(pkg.weight) || 0);
+
+  return (
+    <div className="rounded-xl border border-border bg-secondary/30 p-4">
+      <div className="mb-3 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-xs uppercase tracking-widest text-brand">
+            Package {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="text-xs text-muted-foreground">
+            Line weight:{" "}
+            <span className="font-mono text-foreground">{lineWeight} kg</span>
+          </span>
+        </div>
+        <div className="flex items-center gap-3">
+          <label className="flex cursor-pointer items-center gap-2 text-xs text-muted-foreground">
+            <Checkbox
+              checked={pkg.unstackable}
+              onCheckedChange={(v) => onChange({ unstackable: v === true })}
+              className="h-4 w-4 border-border data-[state=checked]:bg-brand data-[state=checked]:text-primary-foreground data-[state=checked]:border-brand"
+            />
+            unstackable
+          </label>
+          {canRemove && (
+            <button
+              type="button"
+              onClick={onRemove}
+              className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
+              aria-label="Remove package"
+            >
+              <Trash2 className="h-3.5 w-3.5" />
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-12 md:gap-3">
+        {/* Quantity */}
+        <PkgInput
+          className="md:col-span-2"
+          label="Qty *"
+          suffix="pcs"
+          type="number"
+          value={pkg.quantity}
+          onChange={(v) => onChange({ quantity: v })}
+          placeholder="1"
+        />
+
+        {/* Dimensions */}
+        <div className="col-span-2 rounded-lg bg-card/60 px-3 py-2 md:col-span-4">
+          <div className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+            Dimensions L×W×H *
+          </div>
+          <div className="mt-1 flex items-center gap-1 text-base font-medium">
+            <input
+              type="number"
+              value={pkg.length}
+              onChange={(e) => onChange({ length: e.target.value })}
+              placeholder="L"
+              className="w-full min-w-0 bg-transparent outline-none placeholder:text-muted-foreground/50"
+            />
+            <span className="text-muted-foreground">×</span>
+            <input
+              type="number"
+              value={pkg.width}
+              onChange={(e) => onChange({ width: e.target.value })}
+              placeholder="W"
+              className="w-full min-w-0 bg-transparent outline-none placeholder:text-muted-foreground/50"
+            />
+            <span className="text-muted-foreground">×</span>
+            <input
+              type="number"
+              value={pkg.height}
+              onChange={(e) => onChange({ height: e.target.value })}
+              placeholder="H"
+              className="w-full min-w-0 bg-transparent outline-none placeholder:text-muted-foreground/50"
+            />
+            <span className="text-xs text-muted-foreground">cm</span>
+          </div>
+        </div>
+
+        {/* Weight */}
+        <PkgInput
+          className="md:col-span-2"
+          label="Unit weight *"
+          suffix="kg"
+          type="number"
+          value={pkg.weight}
+          onChange={(v) => onChange({ weight: v })}
+          placeholder="0"
+        />
+
+        {/* Type */}
+        <div className="col-span-2 rounded-lg bg-card/60 px-3 py-2 md:col-span-4">
+          <div className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+            Package type *
+          </div>
+          <Select value={pkg.packageType} onValueChange={(v) => onChange({ packageType: v })}>
+            <SelectTrigger className="mt-0.5 h-7 border-0 bg-transparent p-0 text-base font-medium focus:ring-0 focus:ring-offset-0 data-[placeholder]:[&>span]:text-muted-foreground/50">
+              <SelectValue placeholder="Select…" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="pallet">Pallet — Standard 120×80cm with exchange</SelectItem>
+              <SelectItem value="carton">Carton — Standard shipping box</SelectItem>
+              <SelectItem value="case">Case — Protective container</SelectItem>
+              <SelectItem value="bundle">Bundle — Multiple items together</SelectItem>
+              <SelectItem value="custom">Custom — Special requirements</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        {/* Description */}
+        <div className="col-span-2 md:col-span-12">
+          <Textarea
+            value={pkg.description}
+            onChange={(e) => onChange({ description: e.target.value })}
+            placeholder="Description (optional) — what's inside?"
+            rows={2}
+            className="resize-none border-border bg-card/60 text-sm placeholder:text-muted-foreground/50 focus-visible:ring-brand/40"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const PkgInput = ({
+  label,
+  suffix,
+  type = "text",
+  value,
+  onChange,
+  placeholder,
+  className = "",
+}: {
+  label: string;
+  suffix?: string;
+  type?: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+  className?: string;
+}) => (
+  <div className={`rounded-lg bg-card/60 px-3 py-2 ${className}`}>
+    <div className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+      {label}
+    </div>
+    <div className="mt-1 flex items-baseline gap-1">
+      <input
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        className="w-full min-w-0 bg-transparent text-base font-medium outline-none placeholder:text-muted-foreground/50"
+      />
+      {suffix && <span className="text-xs text-muted-foreground">{suffix}</span>}
+    </div>
+  </div>
+);
+
+const EmailMode = () => {
+  const email = "platform@carrier.movitus.com";
+  const [copied, setCopied] = useState(false);
+
+  return (
+    <div className="grid gap-6 p-4 md:grid-cols-2 md:p-6">
+      <div>
+        <span className="font-mono text-xs uppercase tracking-widest text-brand">/ send by email</span>
+        <h3 className="mt-2 text-2xl font-semibold tracking-tight">
+          Email us your shipment.
+        </h3>
+        <p className="mt-2 text-sm text-muted-foreground">
+          We'll parse, format and send it out for bidding. No account, no fuss.
+        </p>
+
+        <button
+          type="button"
+          onClick={() => {
+            navigator.clipboard?.writeText(email);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500);
+          }}
+          className="mt-5 flex w-full items-center justify-between gap-3 rounded-xl border border-border bg-secondary/40 px-4 py-3 text-left transition-colors hover:border-brand/40"
+        >
+          <div className="min-w-0">
+            <div className="text-[11px] uppercase tracking-wider text-muted-foreground">
+              Send to
+            </div>
+            <div className="truncate font-mono text-base font-medium text-foreground">
+              {email}
+            </div>
+          </div>
+          <span className="flex shrink-0 items-center gap-1.5 text-xs text-brand">
+            {copied ? <CheckCircle2 className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+            {copied ? "Copied" : "Copy"}
+          </span>
+        </button>
+
+        <a
+          href={`mailto:${email}?subject=New%20shipment%20request`}
+          className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand px-4 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-brand/90"
+        >
+          <Mail className="h-4 w-4" />
+          Open in mail app
+        </a>
+      </div>
+
+      <div className="rounded-xl border border-border bg-secondary/30 p-5">
+        <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          Make sure your email includes
+        </div>
+        <ul className="mt-3 space-y-2.5 text-sm">
+          {[
+            "Full pickup address (street, city, country)",
+            "Full delivery address (street, city, country)",
+            "Desired pickup date",
+            "Cargo type and description",
+            "Weight and dimensions (if known)",
+            "Special handling or dangerous goods",
+            "Your contact name and phone number",
+          ].map((t) => (
+            <li key={t} className="flex items-start gap-2.5">
+              <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-brand" />
+              <span className="text-muted-foreground">{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
 
 const Stat = ({ value, label }: { value: string; label: string }) => (
   <div className="rounded-2xl border border-border bg-card p-8">

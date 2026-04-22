@@ -287,46 +287,45 @@ const Index = () => {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how" className="relative py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 max-w-2xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-brand">/ how it works</span>
-            <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
-              Three steps from <span className="font-serif italic">click</span> to delivered.
+      <section id="how" className="relative py-32">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-20 text-center">
+            <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-brand">How it works</span>
+            <h2 className="mx-auto mt-4 max-w-2xl text-balance text-4xl font-medium tracking-display md:text-6xl">
+              Three steps. <span className="text-muted-foreground">From request to delivered.</span>
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-3">
             {[
               {
                 step: "01",
                 title: "Tell us what & where",
-                desc: "Drop in pickup, drop-off, weight and date. We compare 40+ carriers in real time.",
+                desc: "Share pickup, drop-off and cargo details. Takes about a minute.",
                 icon: Package,
               },
               {
                 step: "02",
-                title: "Pick your price",
-                desc: "Cheapest, fastest, greenest — your choice. Pay by card, Apple Pay or invoice.",
+                title: "Carriers bid",
+                desc: "Verified European carriers compete for your shipment within 24–48h.",
                 icon: Zap,
               },
               {
                 step: "03",
-                title: "We pick it up",
-                desc: "A driver shows up at your door. Track every step until it lands.",
+                title: "We pick the best",
+                desc: "We recommend the right carrier on price, service and timing. You decide.",
                 icon: Truck,
               },
             ].map((s) => (
               <div
                 key={s.step}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition-colors hover:border-brand/40"
+                className="group relative overflow-hidden rounded-3xl border border-border/60 bg-card/40 p-8 backdrop-blur-sm transition-colors hover:border-brand/30"
               >
-                <div className="mb-8 flex items-center justify-between">
-                  <span className="font-mono text-sm text-muted-foreground">{s.step}</span>
-                  <s.icon className="h-5 w-5 text-brand" />
+                <div className="mb-10 flex items-center justify-between">
+                  <span className="font-mono text-[11px] tracking-wider text-muted-foreground">{s.step}</span>
+                  <s.icon className="h-4 w-4 text-brand/80" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-2xl font-semibold tracking-tight">{s.title}</h3>
-                <p className="mt-3 text-muted-foreground">{s.desc}</p>
-                <div className="absolute -bottom-px left-0 h-px w-0 bg-gradient-to-r from-brand to-transparent transition-all duration-500 group-hover:w-full" />
+                <h3 className="text-[22px] font-medium tracking-tight">{s.title}</h3>
+                <p className="mt-2.5 text-[15px] font-light leading-relaxed text-muted-foreground">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -334,33 +333,34 @@ const Index = () => {
       </section>
 
       {/* SERVICES split */}
-      <section id="services" className="relative py-28">
-        <div className="pointer-events-none absolute right-0 top-1/2 -z-10 h-[400px] w-[600px] -translate-y-1/2 rounded-full bg-brand/10 blur-[120px]" />
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:items-center">
+      <section id="services" className="relative py-32">
+        <div className="pointer-events-none absolute right-0 top-1/2 -z-10 h-[400px] w-[600px] -translate-y-1/2 rounded-full bg-brand/[0.06] blur-[140px]" />
+        <div className="mx-auto grid max-w-6xl gap-20 px-6 lg:grid-cols-2 lg:items-center">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-brand">/ what we move</span>
-            <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
-              From a sneaker box <br />
-              to a <span className="font-serif italic text-brand">shipping container</span>.
+            <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-brand">What we move</span>
+            <h2 className="mt-4 text-balance text-4xl font-medium tracking-display md:text-6xl">
+              From a single pallet <br />
+              to a <span className="font-serif italic font-normal text-brand">full container</span>.
             </h2>
-            <p className="mt-6 max-w-md text-lg text-muted-foreground">
-              Whether you're sending a birthday gift across town or moving 20 pallets across the continent, you get the same simple flow and one transparent price.
+            <p className="mt-6 max-w-md text-[17px] font-light leading-relaxed text-muted-foreground">
+              One flow for every shipment. Tell us what you have, and we'll match it
+              to the right carrier — whether it's a single pallet across town, or twenty pallets across the continent.
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2">
             {[
-              { icon: Package, title: "Parcels", note: "0–30 kg", desc: "Next-day or economy. Drop-off or door pickup." },
-              { icon: Box, title: "Pallets", note: "EU + half pallets", desc: "Liftgate, indoor delivery, white glove options." },
-              { icon: Truck, title: "Road freight", note: "LTL & FTL", desc: "Domestic and cross-border, fully tracked." },
-              { icon: Plane, title: "Air & sea", note: "Worldwide", desc: "Customs handled. ETD/ETA in your inbox." },
+              { icon: Package, title: "Parcels", note: "0–30 kg", desc: "Door-to-door or drop-off." },
+              { icon: Box, title: "Pallets", note: "EU + half", desc: "Liftgate and indoor delivery." },
+              { icon: Truck, title: "Road freight", note: "LTL & FTL", desc: "Domestic and cross-border." },
+              { icon: Plane, title: "Air & sea", note: "Worldwide", desc: "Customs handled end-to-end." },
             ].map((s) => (
-              <div key={s.title} className="rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-brand/40">
-                <s.icon className="h-6 w-6 text-brand" />
-                <div className="mt-6 flex items-baseline justify-between">
-                  <h3 className="text-xl font-semibold">{s.title}</h3>
-                  <span className="font-mono text-xs text-muted-foreground">{s.note}</span>
+              <div key={s.title} className="rounded-2xl border border-border/60 bg-card/40 p-6 backdrop-blur-sm transition-all hover:border-brand/30">
+                <s.icon className="h-5 w-5 text-brand/80" strokeWidth={1.5} />
+                <div className="mt-8 flex items-baseline justify-between">
+                  <h3 className="text-[17px] font-medium tracking-tight">{s.title}</h3>
+                  <span className="font-mono text-[11px] text-muted-foreground">{s.note}</span>
                 </div>
-                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+                <p className="mt-1.5 text-[14px] font-light text-muted-foreground">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -368,50 +368,51 @@ const Index = () => {
       </section>
 
       {/* WHY — big feature */}
-      <section id="why" className="relative py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-6 md:grid-cols-3">
-            <Stat value="8s" label="Avg. time to quote" />
-            <Stat value="180+" label="Countries served" />
-            <Stat value="4.9★" label="From 31,000 reviews" />
+      <section id="why" className="relative py-32">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid gap-3 md:grid-cols-3">
+            <Stat value="40+" label="Verified carriers" />
+            <Stat value="24h" label="First bids in" />
+            <Stat value="0€" label="Until you accept" />
           </div>
 
-          <div className="mt-16 overflow-hidden rounded-3xl border border-border bg-card">
+          <div className="mt-20 overflow-hidden rounded-[28px] border border-border/60 bg-card/40 backdrop-blur-sm">
             <div className="grid lg:grid-cols-2">
               <div className="p-10 md:p-14">
-                <span className="font-mono text-xs uppercase tracking-widest text-brand">/ why movitus</span>
-                <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
-                  Built for humans, <br />
-                  not <span className="font-serif italic">logistics nerds</span>.
+                <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-brand">Why Movitus</span>
+                <h2 className="mt-4 text-balance text-4xl font-medium tracking-display md:text-5xl">
+                  We pick the best carrier,<br />
+                  <span className="text-muted-foreground">so you don't have to.</span>
                 </h2>
-                <ul className="mt-8 space-y-5">
+                <ul className="mt-10 space-y-4">
                   {[
-                    "No jargon. No login walls. Just a price.",
-                    "One contract for every carrier you use.",
-                    "Live chat with a real person in under 30 seconds.",
-                    "Pay later, by invoice, if your business needs it.",
+                    "Multiple bids on every shipment — you always get the market rate.",
+                    "Every carrier vetted, insured and approved.",
+                    "Transparent pricing. No surcharges, no surprises.",
+                    "Zero commitment until you accept the offer.",
                   ].map((t) => (
-                    <li key={t} className="flex items-start gap-3 text-base">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand" />
+                    <li key={t} className="flex items-start gap-3 text-[15px] font-light leading-relaxed text-foreground/90">
+                      <CheckCircle2 className="mt-1 h-4 w-4 flex-none text-brand" strokeWidth={2} />
                       <span>{t}</span>
                     </li>
                   ))}
                 </ul>
-                <Button size="lg" className="mt-10 bg-brand text-primary-foreground hover:bg-brand/90">
+                <Button size="lg" className="mt-10 h-11 rounded-full bg-foreground text-background hover:bg-foreground/90 text-[14px] font-medium px-6">
                   Start a shipment
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-1.5 h-4 w-4" />
                 </Button>
               </div>
 
               {/* Decorative tracker mock */}
-              <div className="relative min-h-[420px] border-t border-border bg-secondary/40 p-10 lg:border-l lg:border-t-0">
-                <div className="absolute inset-0 bg-grid opacity-40" />
+              <div className="relative min-h-[460px] border-t border-border/60 bg-secondary/30 p-10 md:p-14 lg:border-l lg:border-t-0">
+                <div className="absolute inset-0 bg-grid" />
                 <div className="relative">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <span className="h-2 w-2 animate-pulse-glow rounded-full bg-brand" />
-                    LIVE · MV-48201
+                  <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                    <span className="h-1.5 w-1.5 animate-pulse-glow rounded-full bg-brand" />
+                    Live · MV-48201
                   </div>
-                  <div className="mt-4 font-serif text-3xl">Berlin → Amsterdam</div>
+                  <div className="mt-3 font-serif text-3xl tracking-tight">Berlin → Amsterdam</div>
+                  <div className="mt-1 text-[13px] text-muted-foreground">Best match: <span className="text-foreground">EuroFreight GmbH · €842</span></div>
 
                   <div className="mt-10 space-y-6">
                     {[

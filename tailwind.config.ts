@@ -19,6 +19,10 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          glow: "hsl(var(--brand-glow))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -80,10 +84,30 @@ export default {
             height: "0",
           },
         },
+        "marquee": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.5", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.05)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+        "grid-fade": {
+          "0%, 100%": { opacity: "0.3" },
+          "50%": { opacity: "0.6" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "marquee": "marquee 40s linear infinite",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
+        "grid-fade": "grid-fade 4s ease-in-out infinite",
       },
     },
   },

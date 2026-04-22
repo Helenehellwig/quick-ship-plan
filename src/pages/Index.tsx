@@ -455,40 +455,39 @@ const Index = () => {
       </section>
 
       {/* TRACK CTA */}
-      <section id="track" className="relative py-28">
+      <section id="track" className="relative py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <Globe className="mx-auto h-10 w-10 text-brand animate-float" />
-          <h2 className="mt-6 text-balance text-4xl font-semibold tracking-tight md:text-6xl">
+          <Globe className="mx-auto h-8 w-8 text-brand/80 animate-float" strokeWidth={1.25} />
+          <h2 className="mt-8 text-balance text-4xl font-medium tracking-display md:text-6xl">
             Already shipping with us?
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">Drop your tracking number — we'll show you exactly where it is.</p>
+          <p className="mt-4 text-[17px] font-light text-muted-foreground">Drop your tracking number. We'll show you exactly where it is.</p>
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="mx-auto mt-8 flex max-w-md gap-2 rounded-full border border-border bg-card p-2"
+            className="mx-auto mt-10 flex max-w-md gap-2 rounded-full border border-border/60 bg-card/40 p-1.5 backdrop-blur"
           >
             <Input
               placeholder="MV-XXXXX"
-              className="border-0 bg-transparent font-mono text-base placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="border-0 bg-transparent font-mono text-[15px] placeholder:text-muted-foreground/50 focus-visible:ring-0 focus-visible:ring-offset-0"
             />
-            <Button type="submit" className="rounded-full bg-brand text-primary-foreground hover:bg-brand/90">
+            <Button type="submit" className="rounded-full bg-brand text-primary-foreground hover:bg-brand/90 text-[13px] font-medium px-5">
               Track
-              <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
           </form>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border bg-card/40 py-12">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
-          <div className="flex items-center gap-2">
-            <div className="grid h-7 w-7 place-items-center rounded-md bg-brand text-primary-foreground">
-              <Box className="h-3.5 w-3.5" strokeWidth={2.5} />
+      <footer className="border-t border-border/40 py-10">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-[12.5px] text-muted-foreground md:flex-row">
+          <div className="flex items-center gap-2.5">
+            <div className="grid h-5 w-5 place-items-center rounded-full bg-brand/10 ring-1 ring-brand/30">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             </div>
-            <span className="font-semibold tracking-tight">movitus</span>
-            <span className="ml-3 text-sm text-muted-foreground">© {new Date().getFullYear()}</span>
+            <span className="font-medium tracking-tight text-foreground">Movitus</span>
+            <span>· © {new Date().getFullYear()}</span>
           </div>
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <a href="#" className="hover:text-foreground">Pricing</a>
             <a href="#" className="hover:text-foreground">For business</a>
             <a href="#" className="hover:text-foreground">Help</a>

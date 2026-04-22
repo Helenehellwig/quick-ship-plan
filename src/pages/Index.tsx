@@ -80,25 +80,25 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* NAV */}
-      <header className="relative z-30">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
-          <a href="#" className="flex items-center gap-2">
-            <div className="grid h-8 w-8 place-items-center rounded-md bg-brand text-primary-foreground">
-              <Box className="h-4 w-4" strokeWidth={2.5} />
+      <header className="sticky top-0 z-40 border-b border-border/40 bg-background/70 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
+          <a href="#" className="flex items-center gap-2.5">
+            <div className="grid h-7 w-7 place-items-center rounded-full bg-brand/10 ring-1 ring-brand/30">
+              <span className="h-2 w-2 rounded-full bg-brand" />
             </div>
-            <span className="text-lg font-semibold tracking-tight">movitus</span>
+            <span className="text-[15px] font-medium tracking-tight">Movitus</span>
           </a>
-          <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
+          <nav className="hidden items-center gap-8 text-[13px] text-muted-foreground md:flex">
             <a href="#how" className="transition-colors hover:text-foreground">How it works</a>
             <a href="#services" className="transition-colors hover:text-foreground">Services</a>
             <a href="#why" className="transition-colors hover:text-foreground">Why Movitus</a>
             <a href="#track" className="transition-colors hover:text-foreground">Track</a>
           </nav>
-          <div className="flex items-center gap-3">
-            <a href="#" className="hidden text-sm text-muted-foreground transition-colors hover:text-foreground md:block">
+          <div className="flex items-center gap-5">
+            <a href="#" className="hidden text-[13px] text-muted-foreground transition-colors hover:text-foreground md:block">
               Sign in
             </a>
-            <Button size="sm" className="bg-brand text-primary-foreground hover:bg-brand/90">
+            <Button size="sm" className="rounded-full bg-foreground text-background hover:bg-foreground/90 px-4 text-[13px] font-medium">
               Get a quote
             </Button>
           </div>
@@ -109,44 +109,44 @@ const Index = () => {
       <section className="relative">
         {/* Backdrop layers */}
         <div className="pointer-events-none absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} />
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-60" />
-        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[600px] w-[1100px] -translate-x-1/2 rounded-full bg-brand/20 blur-[140px]" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-grid" />
+        <div className="pointer-events-none absolute left-1/2 top-[-10%] -z-10 h-[700px] w-[1100px] -translate-x-1/2 rounded-full bg-brand/10 blur-[160px]" />
 
-        <div className="mx-auto max-w-7xl px-6 pb-24 pt-12 lg:pt-20">
+        <div className="mx-auto max-w-6xl px-6 pb-28 pt-20 lg:pt-28">
           {/* Eyebrow */}
-          <div className="mx-auto mb-8 flex w-fit items-center gap-2 rounded-full border border-border bg-card/50 px-4 py-1.5 backdrop-blur">
-            <span className="relative flex h-2 w-2">
+          <div className="mx-auto mb-7 flex w-fit items-center gap-2 text-[12px] font-medium tracking-wide text-brand">
+            <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-pulse-glow rounded-full bg-brand opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
             </span>
-            <span className="text-xs font-medium tracking-wide text-muted-foreground">
-              Verified European carriers · No commitment until you accept
-            </span>
+            <span className="uppercase tracking-[0.18em]">Movitus Freight Platform</span>
           </div>
 
-          <h1 className="mx-auto max-w-4xl text-center text-balance text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl">
-            Ship smarter.{" "}
-            <span className="font-serif italic text-brand">Carriers compete.</span>
+          <h1 className="mx-auto max-w-4xl text-center text-balance text-5xl font-medium leading-[1.02] tracking-display md:text-7xl lg:text-[5.5rem]">
+            We help you pick
             <br />
-            You pick the price.
+            the <span className="font-serif italic font-normal text-brand">best carrier</span>
+            <span className="text-muted-foreground">.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-center text-lg text-muted-foreground md:text-xl">
-            Submit your shipment in 60 seconds. Verified European carriers bid
-            for your freight. You get the best rate — no hidden fees.
+          <p className="mx-auto mt-7 max-w-2xl text-center text-lg font-light leading-relaxed text-muted-foreground md:text-xl">
+            Tell us where it's going. Verified European carriers bid for your freight,
+            and we recommend the best one — on price, service and timing.
+            <br className="hidden md:block" />
+            <span className="text-foreground/70">No account. No commitment. No hidden fees.</span>
           </p>
 
           {/* QUOTE FORM */}
-          <div className="mx-auto mt-12 max-w-5xl">
+          <div className="mx-auto mt-14 max-w-4xl">
             <div
-              className="relative rounded-2xl border border-border bg-card/80 p-2 backdrop-blur-xl"
-              style={{ boxShadow: "var(--shadow-card)" }}
+              className="relative rounded-[28px] border border-white/[0.06] bg-card/60 p-1.5 backdrop-blur-2xl"
+              style={{ boxShadow: "0 1px 0 hsl(180 30% 100% / 0.04) inset, 0 50px 100px -30px hsl(200 60% 0% / 0.6)" }}
             >
               {/* Mode tabs: Form vs Email */}
-              <div className="flex items-center gap-1 rounded-xl bg-muted/40 p-1">
+              <div className="flex items-center gap-1 rounded-[22px] bg-muted/30 p-1">
                 <ModeTab icon={FileText} label="Fill form" active={mode === "form"} onClick={() => setMode("form")} />
                 <ModeTab icon={Mail} label="Send by email" active={mode === "email"} onClick={() => setMode("email")} />
                 <div className="ml-auto hidden items-center gap-2 px-3 text-xs text-muted-foreground sm:flex">
-                  <Zap className="h-3.5 w-3.5 text-brand" />
+                  <Zap className="h-3 w-3 text-brand" />
                   Bids in 24–48h · No commitment
                 </div>
               </div>
@@ -226,8 +226,8 @@ const Index = () => {
 
                   {/* Totals + submit */}
                   <div className="md:col-span-12 mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="text-sm text-muted-foreground">
-                      Total weight:{" "}
+                    <div className="text-[13px] text-muted-foreground">
+                      Total weight{" "}
                       <span className="font-mono font-medium text-foreground">
                         {totalWeight.toLocaleString(undefined, { maximumFractionDigits: 2 })} kg
                       </span>{" "}
@@ -236,10 +236,10 @@ const Index = () => {
                     <Button
                       type="submit"
                       size="lg"
-                      className="group h-14 w-full bg-brand text-primary-foreground hover:bg-brand/90 glow-brand text-base font-semibold sm:w-auto sm:px-8"
+                      className="group h-12 w-full rounded-full bg-brand text-primary-foreground hover:bg-brand/90 text-[14px] font-medium tracking-tight sm:w-auto sm:px-7"
                     >
-                      Submit shipment request
-                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                      Find my best carrier
+                      <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                     </Button>
                   </div>
                 </form>
@@ -247,34 +247,37 @@ const Index = () => {
             </div>
 
             {/* trust row */}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Shield className="h-4 w-4 text-brand" /> Verified carriers only
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-brand" /> Bids in 24–48h
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-brand" /> No account needed
-              </div>
-              <div className="flex items-center gap-2">
-                <Headphones className="h-4 w-4 text-brand" /> Zero commitment
-              </div>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-[12.5px] text-muted-foreground">
+              <span className="flex items-center gap-1.5">
+                <Shield className="h-3.5 w-3.5" /> Verified carriers only
+              </span>
+              <span className="text-border">·</span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5" /> Bids in 24–48h
+              </span>
+              <span className="text-border">·</span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5" /> No account needed
+              </span>
+              <span className="text-border">·</span>
+              <span className="flex items-center gap-1.5">
+                <Headphones className="h-3.5 w-3.5" /> Zero commitment
+              </span>
             </div>
           </div>
         </div>
       </section>
 
       {/* PARTNER MARQUEE */}
-      <section className="border-y border-border/50 bg-card/30 py-8">
-        <p className="mb-6 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          Carrier network
+      <section className="border-y border-border/40 py-10">
+        <p className="mb-7 text-center text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          Trusted by 40+ verified European carriers
         </p>
-        <div className="relative overflow-hidden">
-          <div className="flex w-max animate-marquee gap-16 px-8">
+        <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_15%,#000_85%,transparent)]">
+          <div className="flex w-max animate-marquee gap-20 px-8">
             {[...Array(2)].flatMap((_, i) =>
               ["DHL", "FedEx", "UPS", "Maersk", "DSV", "Kuehne+Nagel", "DB Schenker", "GLS", "TNT"].map((p) => (
-                <span key={`${i}-${p}`} className="text-2xl font-semibold tracking-tight text-muted-foreground/60">
+                <span key={`${i}-${p}`} className="text-xl font-medium tracking-tight text-muted-foreground/40">
                   {p}
                 </span>
               ))
@@ -284,46 +287,45 @@ const Index = () => {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how" className="relative py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 max-w-2xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-brand">/ how it works</span>
-            <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
-              Three steps from <span className="font-serif italic">click</span> to delivered.
+      <section id="how" className="relative py-32">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-20 text-center">
+            <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-brand">How it works</span>
+            <h2 className="mx-auto mt-4 max-w-2xl text-balance text-4xl font-medium tracking-display md:text-6xl">
+              Three steps. <span className="text-muted-foreground">From request to delivered.</span>
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-3">
             {[
               {
                 step: "01",
                 title: "Tell us what & where",
-                desc: "Drop in pickup, drop-off, weight and date. We compare 40+ carriers in real time.",
+                desc: "Share pickup, drop-off and cargo details. Takes about a minute.",
                 icon: Package,
               },
               {
                 step: "02",
-                title: "Pick your price",
-                desc: "Cheapest, fastest, greenest — your choice. Pay by card, Apple Pay or invoice.",
+                title: "Carriers bid",
+                desc: "Verified European carriers compete for your shipment within 24–48h.",
                 icon: Zap,
               },
               {
                 step: "03",
-                title: "We pick it up",
-                desc: "A driver shows up at your door. Track every step until it lands.",
+                title: "We pick the best",
+                desc: "We recommend the right carrier on price, service and timing. You decide.",
                 icon: Truck,
               },
             ].map((s) => (
               <div
                 key={s.step}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition-colors hover:border-brand/40"
+                className="group relative overflow-hidden rounded-3xl border border-border/60 bg-card/40 p-8 backdrop-blur-sm transition-colors hover:border-brand/30"
               >
-                <div className="mb-8 flex items-center justify-between">
-                  <span className="font-mono text-sm text-muted-foreground">{s.step}</span>
-                  <s.icon className="h-5 w-5 text-brand" />
+                <div className="mb-10 flex items-center justify-between">
+                  <span className="font-mono text-[11px] tracking-wider text-muted-foreground">{s.step}</span>
+                  <s.icon className="h-4 w-4 text-brand/80" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-2xl font-semibold tracking-tight">{s.title}</h3>
-                <p className="mt-3 text-muted-foreground">{s.desc}</p>
-                <div className="absolute -bottom-px left-0 h-px w-0 bg-gradient-to-r from-brand to-transparent transition-all duration-500 group-hover:w-full" />
+                <h3 className="text-[22px] font-medium tracking-tight">{s.title}</h3>
+                <p className="mt-2.5 text-[15px] font-light leading-relaxed text-muted-foreground">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -331,33 +333,34 @@ const Index = () => {
       </section>
 
       {/* SERVICES split */}
-      <section id="services" className="relative py-28">
-        <div className="pointer-events-none absolute right-0 top-1/2 -z-10 h-[400px] w-[600px] -translate-y-1/2 rounded-full bg-brand/10 blur-[120px]" />
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:items-center">
+      <section id="services" className="relative py-32">
+        <div className="pointer-events-none absolute right-0 top-1/2 -z-10 h-[400px] w-[600px] -translate-y-1/2 rounded-full bg-brand/[0.06] blur-[140px]" />
+        <div className="mx-auto grid max-w-6xl gap-20 px-6 lg:grid-cols-2 lg:items-center">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-brand">/ what we move</span>
-            <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
-              From a sneaker box <br />
-              to a <span className="font-serif italic text-brand">shipping container</span>.
+            <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-brand">What we move</span>
+            <h2 className="mt-4 text-balance text-4xl font-medium tracking-display md:text-6xl">
+              From a single pallet <br />
+              to a <span className="font-serif italic font-normal text-brand">full container</span>.
             </h2>
-            <p className="mt-6 max-w-md text-lg text-muted-foreground">
-              Whether you're sending a birthday gift across town or moving 20 pallets across the continent, you get the same simple flow and one transparent price.
+            <p className="mt-6 max-w-md text-[17px] font-light leading-relaxed text-muted-foreground">
+              One flow for every shipment. Tell us what you have, and we'll match it
+              to the right carrier — whether it's a single pallet across town, or twenty pallets across the continent.
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2">
             {[
-              { icon: Package, title: "Parcels", note: "0–30 kg", desc: "Next-day or economy. Drop-off or door pickup." },
-              { icon: Box, title: "Pallets", note: "EU + half pallets", desc: "Liftgate, indoor delivery, white glove options." },
-              { icon: Truck, title: "Road freight", note: "LTL & FTL", desc: "Domestic and cross-border, fully tracked." },
-              { icon: Plane, title: "Air & sea", note: "Worldwide", desc: "Customs handled. ETD/ETA in your inbox." },
+              { icon: Package, title: "Parcels", note: "0–30 kg", desc: "Door-to-door or drop-off." },
+              { icon: Box, title: "Pallets", note: "EU + half", desc: "Liftgate and indoor delivery." },
+              { icon: Truck, title: "Road freight", note: "LTL & FTL", desc: "Domestic and cross-border." },
+              { icon: Plane, title: "Air & sea", note: "Worldwide", desc: "Customs handled end-to-end." },
             ].map((s) => (
-              <div key={s.title} className="rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-brand/40">
-                <s.icon className="h-6 w-6 text-brand" />
-                <div className="mt-6 flex items-baseline justify-between">
-                  <h3 className="text-xl font-semibold">{s.title}</h3>
-                  <span className="font-mono text-xs text-muted-foreground">{s.note}</span>
+              <div key={s.title} className="rounded-2xl border border-border/60 bg-card/40 p-6 backdrop-blur-sm transition-all hover:border-brand/30">
+                <s.icon className="h-5 w-5 text-brand/80" strokeWidth={1.5} />
+                <div className="mt-8 flex items-baseline justify-between">
+                  <h3 className="text-[17px] font-medium tracking-tight">{s.title}</h3>
+                  <span className="font-mono text-[11px] text-muted-foreground">{s.note}</span>
                 </div>
-                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+                <p className="mt-1.5 text-[14px] font-light text-muted-foreground">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -365,50 +368,51 @@ const Index = () => {
       </section>
 
       {/* WHY — big feature */}
-      <section id="why" className="relative py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-6 md:grid-cols-3">
-            <Stat value="8s" label="Avg. time to quote" />
-            <Stat value="180+" label="Countries served" />
-            <Stat value="4.9★" label="From 31,000 reviews" />
+      <section id="why" className="relative py-32">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid gap-3 md:grid-cols-3">
+            <Stat value="40+" label="Verified carriers" />
+            <Stat value="24h" label="First bids in" />
+            <Stat value="0€" label="Until you accept" />
           </div>
 
-          <div className="mt-16 overflow-hidden rounded-3xl border border-border bg-card">
+          <div className="mt-20 overflow-hidden rounded-[28px] border border-border/60 bg-card/40 backdrop-blur-sm">
             <div className="grid lg:grid-cols-2">
               <div className="p-10 md:p-14">
-                <span className="font-mono text-xs uppercase tracking-widest text-brand">/ why movitus</span>
-                <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
-                  Built for humans, <br />
-                  not <span className="font-serif italic">logistics nerds</span>.
+                <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-brand">Why Movitus</span>
+                <h2 className="mt-4 text-balance text-4xl font-medium tracking-display md:text-5xl">
+                  We pick the best carrier,<br />
+                  <span className="text-muted-foreground">so you don't have to.</span>
                 </h2>
-                <ul className="mt-8 space-y-5">
+                <ul className="mt-10 space-y-4">
                   {[
-                    "No jargon. No login walls. Just a price.",
-                    "One contract for every carrier you use.",
-                    "Live chat with a real person in under 30 seconds.",
-                    "Pay later, by invoice, if your business needs it.",
+                    "Multiple bids on every shipment — you always get the market rate.",
+                    "Every carrier vetted, insured and approved.",
+                    "Transparent pricing. No surcharges, no surprises.",
+                    "Zero commitment until you accept the offer.",
                   ].map((t) => (
-                    <li key={t} className="flex items-start gap-3 text-base">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand" />
+                    <li key={t} className="flex items-start gap-3 text-[15px] font-light leading-relaxed text-foreground/90">
+                      <CheckCircle2 className="mt-1 h-4 w-4 flex-none text-brand" strokeWidth={2} />
                       <span>{t}</span>
                     </li>
                   ))}
                 </ul>
-                <Button size="lg" className="mt-10 bg-brand text-primary-foreground hover:bg-brand/90">
+                <Button size="lg" className="mt-10 h-11 rounded-full bg-foreground text-background hover:bg-foreground/90 text-[14px] font-medium px-6">
                   Start a shipment
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-1.5 h-4 w-4" />
                 </Button>
               </div>
 
               {/* Decorative tracker mock */}
-              <div className="relative min-h-[420px] border-t border-border bg-secondary/40 p-10 lg:border-l lg:border-t-0">
-                <div className="absolute inset-0 bg-grid opacity-40" />
+              <div className="relative min-h-[460px] border-t border-border/60 bg-secondary/30 p-10 md:p-14 lg:border-l lg:border-t-0">
+                <div className="absolute inset-0 bg-grid" />
                 <div className="relative">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <span className="h-2 w-2 animate-pulse-glow rounded-full bg-brand" />
-                    LIVE · MV-48201
+                  <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                    <span className="h-1.5 w-1.5 animate-pulse-glow rounded-full bg-brand" />
+                    Live · MV-48201
                   </div>
-                  <div className="mt-4 font-serif text-3xl">Berlin → Amsterdam</div>
+                  <div className="mt-3 font-serif text-3xl tracking-tight">Berlin → Amsterdam</div>
+                  <div className="mt-1 text-[13px] text-muted-foreground">Best match: <span className="text-foreground">EuroFreight GmbH · €842</span></div>
 
                   <div className="mt-10 space-y-6">
                     {[
@@ -451,40 +455,39 @@ const Index = () => {
       </section>
 
       {/* TRACK CTA */}
-      <section id="track" className="relative py-28">
+      <section id="track" className="relative py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <Globe className="mx-auto h-10 w-10 text-brand animate-float" />
-          <h2 className="mt-6 text-balance text-4xl font-semibold tracking-tight md:text-6xl">
+          <Globe className="mx-auto h-8 w-8 text-brand/80 animate-float" strokeWidth={1.25} />
+          <h2 className="mt-8 text-balance text-4xl font-medium tracking-display md:text-6xl">
             Already shipping with us?
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">Drop your tracking number — we'll show you exactly where it is.</p>
+          <p className="mt-4 text-[17px] font-light text-muted-foreground">Drop your tracking number. We'll show you exactly where it is.</p>
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="mx-auto mt-8 flex max-w-md gap-2 rounded-full border border-border bg-card p-2"
+            className="mx-auto mt-10 flex max-w-md gap-2 rounded-full border border-border/60 bg-card/40 p-1.5 backdrop-blur"
           >
             <Input
               placeholder="MV-XXXXX"
-              className="border-0 bg-transparent font-mono text-base placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="border-0 bg-transparent font-mono text-[15px] placeholder:text-muted-foreground/50 focus-visible:ring-0 focus-visible:ring-offset-0"
             />
-            <Button type="submit" className="rounded-full bg-brand text-primary-foreground hover:bg-brand/90">
+            <Button type="submit" className="rounded-full bg-brand text-primary-foreground hover:bg-brand/90 text-[13px] font-medium px-5">
               Track
-              <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
           </form>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border bg-card/40 py-12">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
-          <div className="flex items-center gap-2">
-            <div className="grid h-7 w-7 place-items-center rounded-md bg-brand text-primary-foreground">
-              <Box className="h-3.5 w-3.5" strokeWidth={2.5} />
+      <footer className="border-t border-border/40 py-10">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-[12.5px] text-muted-foreground md:flex-row">
+          <div className="flex items-center gap-2.5">
+            <div className="grid h-5 w-5 place-items-center rounded-full bg-brand/10 ring-1 ring-brand/30">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             </div>
-            <span className="font-semibold tracking-tight">movitus</span>
-            <span className="ml-3 text-sm text-muted-foreground">© {new Date().getFullYear()}</span>
+            <span className="font-medium tracking-tight text-foreground">Movitus</span>
+            <span>· © {new Date().getFullYear()}</span>
           </div>
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <a href="#" className="hover:text-foreground">Pricing</a>
             <a href="#" className="hover:text-foreground">For business</a>
             <a href="#" className="hover:text-foreground">Help</a>
@@ -513,13 +516,13 @@ const ModeTab = ({
   <button
     type="button"
     onClick={onClick}
-    className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all sm:flex-none sm:px-5 ${
+    className={`flex flex-1 items-center justify-center gap-2 rounded-[18px] px-4 py-2 text-[13px] font-medium transition-all sm:flex-none sm:px-5 ${
       active
-        ? "bg-card text-foreground shadow-sm"
+        ? "bg-card text-foreground shadow-[0_1px_2px_rgba(0,0,0,0.3)]"
         : "text-muted-foreground hover:text-foreground"
     }`}
   >
-    <Icon className={`h-4 w-4 ${active ? "text-brand" : ""}`} />
+    <Icon className={`h-3.5 w-3.5 ${active ? "text-brand" : ""}`} strokeWidth={1.75} />
     {label}
   </button>
 );
@@ -838,9 +841,9 @@ const EmailMode = () => {
 };
 
 const Stat = ({ value, label }: { value: string; label: string }) => (
-  <div className="rounded-2xl border border-border bg-card p-8">
-    <div className="font-serif text-6xl text-brand md:text-7xl">{value}</div>
-    <div className="mt-2 text-sm uppercase tracking-widest text-muted-foreground">{label}</div>
+  <div className="rounded-3xl border border-border/60 bg-card/40 p-10 backdrop-blur-sm">
+    <div className="font-serif text-6xl tracking-tight text-foreground md:text-7xl">{value}</div>
+    <div className="mt-3 text-[12px] uppercase tracking-[0.18em] text-muted-foreground">{label}</div>
   </div>
 );
 

@@ -120,19 +120,19 @@ const Index = () => {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
             </span>
             <span className="text-xs font-medium tracking-wide text-muted-foreground">
-              Live network · 12,400 shipments moving right now
+              Verified European carriers · No commitment until you accept
             </span>
           </div>
 
           <h1 className="mx-auto max-w-4xl text-center text-balance text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl">
-            Ship anything,{" "}
-            <span className="font-serif italic text-brand">anywhere</span>
+            Ship smarter.{" "}
+            <span className="font-serif italic text-brand">Carriers compete.</span>
             <br />
-            in a few clicks.
+            You pick the price.
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-center text-lg text-muted-foreground md:text-xl">
-            Instant quotes. Door-to-door pickup. Live tracking. From a single
-            envelope to full freight — we move it.
+            Submit your shipment in 60 seconds. Verified European carriers bid
+            for your freight. You get the best rate — no hidden fees.
           </p>
 
           {/* QUOTE FORM */}
@@ -249,16 +249,16 @@ const Index = () => {
             {/* trust row */}
             <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
-                <Shield className="h-4 w-4 text-brand" /> Insured up to $25k
+                <Shield className="h-4 w-4 text-brand" /> Verified carriers only
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-brand" /> Same-day pickup
+                <Clock className="h-4 w-4 text-brand" /> Bids in 24–48h
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-brand" /> No account needed
               </div>
               <div className="flex items-center gap-2">
-                <Headphones className="h-4 w-4 text-brand" /> Real humans 24/7
+                <Headphones className="h-4 w-4 text-brand" /> Zero commitment
               </div>
             </div>
           </div>

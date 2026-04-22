@@ -141,40 +141,109 @@ const Index = () => {
               className="relative rounded-2xl border border-border bg-card/80 p-2 backdrop-blur-xl"
               style={{ boxShadow: "var(--shadow-card)" }}
             >
-              {/* Mode tabs */}
+              {/* Mode tabs: Form vs Email */}
               <div className="flex items-center gap-1 rounded-xl bg-muted/40 p-1">
-                <ModeTab icon={Package} label="Parcel" active={mode === "parcel"} onClick={() => setMode("parcel")} />
-                <ModeTab icon={Box} label="Pallet" active={mode === "pallet"} onClick={() => setMode("pallet")} />
-                <ModeTab icon={Truck} label="Freight" active={mode === "freight"} onClick={() => setMode("freight")} />
+                <ModeTab icon={FileText} label="Fill form" active={mode === "form"} onClick={() => setMode("form")} />
+                <ModeTab icon={Mail} label="Send by email" active={mode === "email"} onClick={() => setMode("email")} />
                 <div className="ml-auto hidden items-center gap-2 px-3 text-xs text-muted-foreground sm:flex">
                   <Zap className="h-3.5 w-3.5 text-brand" />
-                  Quote in ~8 seconds
+                  Bids in 24–48h · No commitment
                 </div>
               </div>
 
-              {/* Form */}
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                }}
-                className="grid grid-cols-1 gap-2 p-2 md:grid-cols-12 md:gap-3 md:p-4"
-              >
-                <FormField className="md:col-span-4" icon={MapPin} label="From" placeholder="ZIP or city" />
-                <FormField className="md:col-span-4" icon={MapPin} label="To" placeholder="ZIP or city" />
-                <FormField className="md:col-span-2" icon={Box} label="Weight" placeholder="kg" type="number" />
-                <FormField className="md:col-span-2" icon={Calendar} label="Pickup" placeholder="" type="date" />
+              {mode === "email" ? (
+                <EmailMode />
+              ) : (
+                <form
+                  onSubmit={(e) => e.preventDefault()}
+                  className="grid grid-cols-1 gap-3 p-2 md:grid-cols-12 md:p-4"
+                >
+                  {/* Contact */}
+                  <FormField className="md:col-span-4" icon={Mail} label="Your email" type="email" placeholder="you@company.com" required />
+                  <FormField className="md:col-span-4" icon={User} label="Full name" placeholder="Anna Schmidt" required />
+                  <FormField className="md:col-span-4" icon={FileText} label="Order name" placeholder="e.g. Berlin → Rotterdam #14" required />
 
-                <div className="md:col-span-12 mt-2">
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="group h-14 w-full bg-brand text-primary-foreground hover:bg-brand/90 glow-brand text-base font-semibold"
-                  >
-                    Get my instant quote
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </div>
-              </form>
+                  {/* Route */}
+                  <FormField className="md:col-span-5" icon={MapPin} label="From" placeholder="Pickup address, city, country" required />
+                  <FormField className="md:col-span-5" icon={MapPin} label="To" placeholder="Delivery address, city, country" required />
+                  <FormField className="md:col-span-2" icon={Calendar} label="Pickup date" type="date" required />
+
+                  {/* Goods classification */}
+                  <SelectField
+                    className="md:col-span-6"
+                    icon={AlertTriangle}
+                    label="Dangerous goods"
+                    placeholder="No dangerous goods"
+                    options={[
+                      "No dangerous goods",
+                      "Class 1 — Explosives",
+                      "Class 2 — Gases",
+                      "Class 3 — Flammable liquids",
+                      "Class 4 — Flammable solids",
+                      "Class 5 — Oxidizing substances",
+                      "Class 6 — Toxic & infectious substances",
+                      "Class 7 — Radioactive materials",
+                      "Class 8 — Corrosive substances",
+                      "Class 9 — Miscellaneous dangerous goods",
+                    ]}
+                  />
+                  <SelectField
+                    className="md:col-span-6"
+                    icon={Sparkles}
+                    label="Special handling"
+                    placeholder="Standard"
+                    options={[
+                      "Standard",
+                      "Fragile",
+                      "Temperature controlled",
+                      "High value",
+                      "Anonymous delivery",
+                      "Urgent delivery",
+                    ]}
+                  />
+
+                  {/* Packages */}
+                  <div className="md:col-span-12 mt-2 space-y-3">
+                    {packages.map((pkg, idx) => (
+                      <PackageBlock
+                        key={pkg.id}
+                        index={idx}
+                        pkg={pkg}
+                        canRemove={packages.length > 1}
+                        onChange={(patch) => updatePkg(pkg.id, patch)}
+                        onRemove={() => removePkg(pkg.id)}
+                      />
+                    ))}
+
+                    <button
+                      type="button"
+                      onClick={addPkg}
+                      className="flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-border bg-secondary/20 py-3 text-sm font-medium text-muted-foreground transition-colors hover:border-brand/40 hover:text-foreground"
+                    >
+                      <Plus className="h-4 w-4" /> Add another package
+                    </button>
+                  </div>
+
+                  {/* Totals + submit */}
+                  <div className="md:col-span-12 mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="text-sm text-muted-foreground">
+                      Total weight:{" "}
+                      <span className="font-mono font-medium text-foreground">
+                        {totalWeight.toLocaleString(undefined, { maximumFractionDigits: 2 })} kg
+                      </span>{" "}
+                      · {packages.length} package{packages.length > 1 ? "s" : ""}
+                    </div>
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="group h-14 w-full bg-brand text-primary-foreground hover:bg-brand/90 glow-brand text-base font-semibold sm:w-auto sm:px-8"
+                    >
+                      Submit shipment request
+                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </div>
+                </form>
+              )}
             </div>
 
             {/* trust row */}

@@ -300,19 +300,19 @@ const Index = () => {
               {
                 step: "01",
                 title: "Tell us what & where",
-                desc: "Share pickup, drop-off and cargo details. Takes about a minute.",
+                desc: "Fill out the form or send us an email with all your shipment details — whichever is easiest.",
                 icon: Package,
               },
               {
                 step: "02",
                 title: "Carriers bid",
-                desc: "Verified European carriers compete for your shipment within 24–48h.",
+                desc: "Verified European carriers bid on your shipment, and we find the optimal match — fast.",
                 icon: Zap,
               },
               {
                 step: "03",
-                title: "We pick the best",
-                desc: "We recommend the right carrier on price, service and timing. You decide.",
+                title: "Confirm & ship",
+                desc: "Confirm your match and everything gets picked up and delivered exactly as you requested.",
                 icon: Truck,
               },
             ].map((s) => (
@@ -386,10 +386,10 @@ const Index = () => {
                 </h2>
                 <ul className="mt-10 space-y-4">
                   {[
-                    "Multiple bids on every shipment — you always get the market rate.",
-                    "Every carrier vetted, insured and approved.",
-                    "Transparent pricing. No surcharges, no surprises.",
-                    "Zero commitment until you accept the offer.",
+                    "Reliable, vetted carriers — every shipment handled with care.",
+                    "GDPR compliant. Your data stays private and secure.",
+                    "On-time delivery, every time — we make sure of it.",
+                    "24/7 support. Real people, whenever you need us.",
                   ].map((t) => (
                     <li key={t} className="flex items-start gap-3 text-[15px] font-light leading-relaxed text-foreground/90">
                       <CheckCircle2 className="mt-1 h-4 w-4 flex-none text-brand" strokeWidth={2} />

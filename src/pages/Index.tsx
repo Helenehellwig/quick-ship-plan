@@ -440,8 +440,8 @@ const Index = () => {
                     <span className="h-1.5 w-1.5 animate-pulse-glow rounded-full bg-brand" />
                     Live · MV-48201
                   </div>
-                  <div className="mt-3 font-serif text-3xl tracking-tight">Berlin → Mumbai</div>
-                  <div className="mt-1 text-[13px] text-muted-foreground">Best match: <span className="text-foreground">EuroFreight GmbH · €842</span></div>
+                  <div className="mt-3 font-serif text-3xl tracking-tight">Mumbai → Berlin</div>
+                  <div className="mt-1 text-[13px] text-muted-foreground">Best match: <span className="text-foreground">Mustermann GmbH · €842</span></div>
 
                   <div className="mt-10 space-y-6">
                     {[

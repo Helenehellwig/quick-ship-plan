@@ -142,7 +142,7 @@ const Index = () => {
             The EU–India Free Trade Agreement opens a €4&nbsp;bn opportunity. Movitus is the platform digitalizing the corridor —
             tell us what you're shipping, vetted carriers bid, and we pick the best match for you.
             <br className="hidden md:block" />
-            <span className="text-foreground/70">No account. No commitment. No hidden fees.</span>
+            <span className="text-foreground/70">Move with us.</span>
           </p>
 
           {/* QUOTE FORM */}

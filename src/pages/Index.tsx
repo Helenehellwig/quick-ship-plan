@@ -129,18 +129,18 @@ const Index = () => {
               <span className="absolute inline-flex h-full w-full animate-pulse-glow rounded-full bg-brand opacity-75" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
             </span>
-            <span className="uppercase tracking-[0.18em]">Movitus Freight Platform</span>
+            <span className="uppercase tracking-[0.18em]">Built for the EU–India corridor</span>
           </div>
 
           <h1 className="mx-auto max-w-4xl text-center text-balance text-5xl font-medium leading-[1.02] tracking-display md:text-7xl lg:text-[5.5rem]">
-            We help you pick
+            Connecting Europe
             <br />
-            the <span className="font-serif italic font-normal text-brand">best carrier</span>
+            and <span className="font-serif italic font-normal text-brand">India</span>
             <span className="text-muted-foreground">.</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-center text-lg font-light leading-relaxed text-muted-foreground md:text-xl">
-            Tell us where it's going. Verified European carriers bid for your freight,
-            and we recommend the best one — on price, service and timing.
+            The EU–India Free Trade Agreement opens a €4&nbsp;bn opportunity. Movitus is the platform digitalizing the corridor —
+            tell us what you're shipping, vetted carriers bid, and we pick the best match for you.
             <br className="hidden md:block" />
             <span className="text-foreground/70">No account. No commitment. No hidden fees.</span>
           </p>

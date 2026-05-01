@@ -142,7 +142,7 @@ const Index = () => {
             The EU–India Free Trade Agreement opens a €4&nbsp;bn opportunity. Movitus is the platform digitalizing the corridor —
             tell us what you're shipping, vetted carriers bid, and we pick the best match for you.
             <br className="hidden md:block" />
-            <span className="text-foreground/70">No account. No commitment. No hidden fees.</span>
+            <span className="text-foreground/70">Move with us.</span>
           </p>
 
           {/* QUOTE FORM */}
@@ -278,31 +278,34 @@ const Index = () => {
         </div>
       </section>
 
-      {/* PARTNERS — supported by trusted institutions */}
-      <section className="border-y border-border/40 py-14">
-        <p className="mb-10 text-center text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+      {/* PARTNERS — supported by trusted institutions (marquee) */}
+      <section className="border-y border-border/40 py-12">
+        <p className="mb-9 text-center text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
           Supported by trusted institutions
         </p>
-        <div className="mx-auto grid max-w-6xl grid-cols-2 items-center gap-x-10 gap-y-8 px-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
-          {[
-            { src: partnerLcs, alt: "LCS Logistics Changers" },
-            { src: partnerInnovation, alt: "2 Innovation Incubator" },
-            { src: partnerLmu, alt: "LMU Munich" },
-            { src: partnerMug, alt: "Münchener Universitätsgesellschaft" },
-            { src: partnerCluster, alt: "Cluster Mobility & Logistics" },
-            { src: partnerGtHub, alt: "GT Hub" },
-            { src: partnerGruenderland, alt: "Gründerland Bayern" },
-            { src: partnerAllgaeu, alt: "Allgäu Digital" },
-          ].map((p) => (
-            <div key={p.alt} className="flex items-center justify-center">
-              <img
-                src={p.src}
-                alt={p.alt}
-                loading="lazy"
-                className="h-12 w-auto max-w-[140px] object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
-              />
-            </div>
-          ))}
+        <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)]">
+          <div className="flex w-max animate-marquee items-center gap-16 px-8">
+            {[...Array(2)].flatMap((_, i) =>
+              [
+                { src: partnerLcs, alt: "LCS Logistics Changers" },
+                { src: partnerInnovation, alt: "2 Innovation Incubator" },
+                { src: partnerLmu, alt: "LMU Munich" },
+                { src: partnerMug, alt: "Münchener Universitätsgesellschaft" },
+                { src: partnerCluster, alt: "Cluster Mobility & Logistics" },
+                { src: partnerGtHub, alt: "GT Hub" },
+                { src: partnerGruenderland, alt: "Gründerland Bayern" },
+                { src: partnerAllgaeu, alt: "Allgäu Digital" },
+              ].map((p) => (
+                <img
+                  key={`${i}-${p.alt}`}
+                  src={p.src}
+                  alt={p.alt}
+                  loading="lazy"
+                  className="h-12 w-auto max-w-[160px] flex-none object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
+                />
+              ))
+            )}
+          </div>
         </div>
       </section>
 
@@ -354,47 +357,80 @@ const Index = () => {
 
       {/* SERVICES split */}
       <section id="services" className="relative py-32">
-        <div className="pointer-events-none absolute right-0 top-1/2 -z-10 h-[400px] w-[600px] -translate-y-1/2 rounded-full bg-brand/[0.06] blur-[140px]" />
-        <div className="mx-auto grid max-w-6xl gap-20 px-6 lg:grid-cols-2 lg:items-center">
-          <div>
+        <div className="pointer-events-none absolute right-0 top-1/2 -z-10 h-[500px] w-[700px] -translate-y-1/2 rounded-full bg-brand/[0.06] blur-[160px]" />
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
             <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-brand">What we move</span>
             <h2 className="mt-4 text-balance text-4xl font-medium tracking-display md:text-6xl">
-              From a single pallet <br />
-              to a <span className="font-serif italic font-normal text-brand">full container</span>.
+              Europe to India,
+              <br />
+              <span className="font-serif italic font-normal text-brand">every way</span>
+              <span className="text-muted-foreground"> that matters.</span>
             </h2>
-            <p className="mt-6 max-w-md text-[17px] font-light leading-relaxed text-muted-foreground">
-              One flow for every shipment. Tell us what you have, and we'll match it
-              to the right carrier — whether it's a single pallet across town, or twenty pallets across the continent.
+            <p className="mx-auto mt-6 max-w-xl text-[17px] font-light leading-relaxed text-muted-foreground">
+              One platform for the entire corridor. Road within each region, air for what's urgent,
+              sea for everything that scales.
             </p>
           </div>
-          <div className="rounded-3xl border border-border/60 bg-card/40 backdrop-blur-sm divide-y divide-border/60">
+
+          <div className="grid gap-5 md:grid-cols-3">
             {[
               {
                 icon: Truck,
                 title: "Road",
-                desc: "Pallets and full truckloads across Europe and within India — domestic and cross-border.",
+                tag: "Domestic & cross-border",
+                desc: "Pallets and full truckloads across Europe and within India.",
+                stat: "LTL · FTL",
               },
               {
                 icon: Plane,
                 title: "Air",
-                desc: "Time-critical freight between Europe and India, with customs handled end-to-end.",
+                tag: "Time-critical",
+                desc: "Express freight between Europe and India with customs handled end-to-end.",
+                stat: "3–6 days",
+                featured: true,
               },
               {
                 icon: Ship,
                 title: "Sea",
-                desc: "FCL and LCL container shipping on the Europe ↔ India trade lanes.",
+                tag: "Built to scale",
+                desc: "FCL and LCL containers on the Europe ↔ India trade lanes.",
+                stat: "FCL · LCL",
               },
             ].map((s) => (
-              <div key={s.title} className="flex items-start gap-5 p-7 transition-colors hover:bg-secondary/40">
-                <div className="mt-0.5 flex h-10 w-10 flex-none items-center justify-center rounded-full border border-border/60 bg-background">
-                  <s.icon className="h-4 w-4 text-brand" strokeWidth={1.5} />
-                </div>
-                <div className="min-w-0">
-                  <div className="flex items-baseline gap-3">
-                    <h3 className="text-[18px] font-medium tracking-tight">{s.title}</h3>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">EU · India</span>
+              <div
+                key={s.title}
+                className={`group relative overflow-hidden rounded-3xl border p-8 transition-all duration-300 hover:-translate-y-1 ${
+                  s.featured
+                    ? "border-brand/30 bg-gradient-to-br from-brand/[0.08] via-card/60 to-card/40 shadow-[0_30px_80px_-30px_hsl(186_85%_47%/0.25)]"
+                    : "border-border/60 bg-card/40 backdrop-blur-sm hover:border-brand/30"
+                }`}
+              >
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-brand/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                />
+                <div className="relative flex items-start justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border/60 bg-background shadow-sm">
+                    <s.icon className="h-5 w-5 text-brand" strokeWidth={1.5} />
                   </div>
-                  <p className="mt-1.5 text-[14px] font-light leading-relaxed text-muted-foreground">{s.desc}</p>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    {s.stat}
+                  </span>
+                </div>
+
+                <div className="relative mt-12">
+                  <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-brand/80">{s.tag}</div>
+                  <h3 className="mt-2 text-[28px] font-medium tracking-display">{s.title}</h3>
+                  <p className="mt-3 text-[14.5px] font-light leading-relaxed text-muted-foreground">{s.desc}</p>
+                </div>
+
+                <div className="relative mt-10 flex items-center gap-2 text-[12px] font-medium text-foreground/80">
+                  <span>Berlin</span>
+                  <div className="relative h-px flex-1 bg-gradient-to-r from-border via-brand/60 to-border">
+                    <span className="absolute left-1/2 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand shadow-[0_0_0_4px_hsl(186_85%_47%/0.15)]" />
+                  </div>
+                  <span>Mumbai</span>
                 </div>
               </div>
             ))}

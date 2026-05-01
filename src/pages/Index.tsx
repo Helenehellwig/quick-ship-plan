@@ -36,6 +36,15 @@ import {
   Ship,
 } from "lucide-react";
 
+import partnerLcs from "@/assets/partners/lcs.jpg";
+import partnerInnovation from "@/assets/partners/innovation-incubator.jpg";
+import partnerLmu from "@/assets/partners/lmu.jpg";
+import partnerMug from "@/assets/partners/mug.jpg";
+import partnerCluster from "@/assets/partners/cluster-mobility.jpg";
+import partnerGtHub from "@/assets/partners/gt-hub.jpg";
+import partnerGruenderland from "@/assets/partners/gruenderland-bayern.jpg";
+import partnerAllgaeu from "@/assets/partners/allgaeu-digital.jpg";
+
 type FormMode = "form" | "email";
 
 type Pkg = {

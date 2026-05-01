@@ -386,13 +386,7 @@ const Index = () => {
       {/* WHY — big feature */}
       <section id="why" className="relative py-32">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-3 md:grid-cols-3">
-            <Stat value="40+" label="Verified carriers" />
-            <Stat value="24h" label="First bids in" />
-            <Stat value="0€" label="Until you accept" />
-          </div>
-
-          <div className="mt-20 overflow-hidden rounded-[28px] border border-border/60 bg-card/40 backdrop-blur-sm">
+          <div className="overflow-hidden rounded-[28px] border border-border/60 bg-card/40 backdrop-blur-sm">
             <div className="grid lg:grid-cols-2">
               <div className="p-10 md:p-14">
                 <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-brand">Why Movitus</span>
@@ -427,13 +421,13 @@ const Index = () => {
                     <span className="h-1.5 w-1.5 animate-pulse-glow rounded-full bg-brand" />
                     Live · MV-48201
                   </div>
-                  <div className="mt-3 font-serif text-3xl tracking-tight">Berlin → Amsterdam</div>
+                  <div className="mt-3 font-serif text-3xl tracking-tight">Berlin → Mumbai</div>
                   <div className="mt-1 text-[13px] text-muted-foreground">Best match: <span className="text-foreground">EuroFreight GmbH · €842</span></div>
 
                   <div className="mt-10 space-y-6">
                     {[
                       { label: "Picked up", time: "08:14", done: true },
-                      { label: "In transit · Hannover hub", time: "13:02", done: true },
+                      { label: "In transit · Frankfurt hub", time: "13:02", done: true },
                       { label: "Out for delivery", time: "—", done: false, active: true },
                       { label: "Delivered", time: "—", done: false },
                     ].map((s, i, arr) => (

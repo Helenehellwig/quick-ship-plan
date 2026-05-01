@@ -278,21 +278,31 @@ const Index = () => {
         </div>
       </section>
 
-      {/* PARTNER MARQUEE */}
-      <section className="border-y border-border/40 py-10">
-        <p className="mb-7 text-center text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-          Trusted by 40+ verified European carriers
+      {/* PARTNERS — supported by trusted institutions */}
+      <section className="border-y border-border/40 py-14">
+        <p className="mb-10 text-center text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          Supported by trusted institutions
         </p>
-        <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_15%,#000_85%,transparent)]">
-          <div className="flex w-max animate-marquee gap-20 px-8">
-            {[...Array(2)].flatMap((_, i) =>
-              ["DHL", "FedEx", "UPS", "Maersk", "DSV", "Kuehne+Nagel", "DB Schenker", "GLS", "TNT"].map((p) => (
-                <span key={`${i}-${p}`} className="text-xl font-medium tracking-tight text-muted-foreground/40">
-                  {p}
-                </span>
-              ))
-            )}
-          </div>
+        <div className="mx-auto grid max-w-6xl grid-cols-2 items-center gap-x-10 gap-y-8 px-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
+          {[
+            { src: partnerLcs, alt: "LCS Logistics Changers" },
+            { src: partnerInnovation, alt: "2 Innovation Incubator" },
+            { src: partnerLmu, alt: "LMU Munich" },
+            { src: partnerMug, alt: "Münchener Universitätsgesellschaft" },
+            { src: partnerCluster, alt: "Cluster Mobility & Logistics" },
+            { src: partnerGtHub, alt: "GT Hub" },
+            { src: partnerGruenderland, alt: "Gründerland Bayern" },
+            { src: partnerAllgaeu, alt: "Allgäu Digital" },
+          ].map((p) => (
+            <div key={p.alt} className="flex items-center justify-center">
+              <img
+                src={p.src}
+                alt={p.alt}
+                loading="lazy"
+                className="h-12 w-auto max-w-[140px] object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
+              />
+            </div>
+          ))}
         </div>
       </section>
 

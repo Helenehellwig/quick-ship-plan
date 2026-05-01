@@ -36,6 +36,15 @@ import {
   Ship,
 } from "lucide-react";
 
+import partnerLcs from "@/assets/partners/lcs.jpg";
+import partnerInnovation from "@/assets/partners/innovation-incubator.jpg";
+import partnerLmu from "@/assets/partners/lmu.jpg";
+import partnerMug from "@/assets/partners/mug.jpg";
+import partnerCluster from "@/assets/partners/cluster-mobility.jpg";
+import partnerGtHub from "@/assets/partners/gt-hub.jpg";
+import partnerGruenderland from "@/assets/partners/gruenderland-bayern.jpg";
+import partnerAllgaeu from "@/assets/partners/allgaeu-digital.jpg";
+
 type FormMode = "form" | "email";
 
 type Pkg = {
@@ -120,18 +129,18 @@ const Index = () => {
               <span className="absolute inline-flex h-full w-full animate-pulse-glow rounded-full bg-brand opacity-75" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
             </span>
-            <span className="uppercase tracking-[0.18em]">Movitus Freight Platform</span>
+            <span className="uppercase tracking-[0.18em]">Built for the EU–India corridor</span>
           </div>
 
           <h1 className="mx-auto max-w-4xl text-center text-balance text-5xl font-medium leading-[1.02] tracking-display md:text-7xl lg:text-[5.5rem]">
-            We help you pick
+            Connecting Europe
             <br />
-            the <span className="font-serif italic font-normal text-brand">best carrier</span>
+            and <span className="font-serif italic font-normal text-brand">India</span>
             <span className="text-muted-foreground">.</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-center text-lg font-light leading-relaxed text-muted-foreground md:text-xl">
-            Tell us where it's going. Verified European carriers bid for your freight,
-            and we recommend the best one — on price, service and timing.
+            The EU–India Free Trade Agreement opens a €4&nbsp;bn opportunity. Movitus is the platform digitalizing the corridor —
+            tell us what you're shipping, vetted carriers bid, and we pick the best match for you.
             <br className="hidden md:block" />
             <span className="text-foreground/70">No account. No commitment. No hidden fees.</span>
           </p>
@@ -269,21 +278,31 @@ const Index = () => {
         </div>
       </section>
 
-      {/* PARTNER MARQUEE */}
-      <section className="border-y border-border/40 py-10">
-        <p className="mb-7 text-center text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-          Trusted by 40+ verified European carriers
+      {/* PARTNERS — supported by trusted institutions */}
+      <section className="border-y border-border/40 py-14">
+        <p className="mb-10 text-center text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          Supported by trusted institutions
         </p>
-        <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_15%,#000_85%,transparent)]">
-          <div className="flex w-max animate-marquee gap-20 px-8">
-            {[...Array(2)].flatMap((_, i) =>
-              ["DHL", "FedEx", "UPS", "Maersk", "DSV", "Kuehne+Nagel", "DB Schenker", "GLS", "TNT"].map((p) => (
-                <span key={`${i}-${p}`} className="text-xl font-medium tracking-tight text-muted-foreground/40">
-                  {p}
-                </span>
-              ))
-            )}
-          </div>
+        <div className="mx-auto grid max-w-6xl grid-cols-2 items-center gap-x-10 gap-y-8 px-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
+          {[
+            { src: partnerLcs, alt: "LCS Logistics Changers" },
+            { src: partnerInnovation, alt: "2 Innovation Incubator" },
+            { src: partnerLmu, alt: "LMU Munich" },
+            { src: partnerMug, alt: "Münchener Universitätsgesellschaft" },
+            { src: partnerCluster, alt: "Cluster Mobility & Logistics" },
+            { src: partnerGtHub, alt: "GT Hub" },
+            { src: partnerGruenderland, alt: "Gründerland Bayern" },
+            { src: partnerAllgaeu, alt: "Allgäu Digital" },
+          ].map((p) => (
+            <div key={p.alt} className="flex items-center justify-center">
+              <img
+                src={p.src}
+                alt={p.alt}
+                loading="lazy"
+                className="h-12 w-auto max-w-[140px] object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
+              />
+            </div>
+          ))}
         </div>
       </section>
 
@@ -421,8 +440,8 @@ const Index = () => {
                     <span className="h-1.5 w-1.5 animate-pulse-glow rounded-full bg-brand" />
                     Live · MV-48201
                   </div>
-                  <div className="mt-3 font-serif text-3xl tracking-tight">Berlin → Mumbai</div>
-                  <div className="mt-1 text-[13px] text-muted-foreground">Best match: <span className="text-foreground">EuroFreight GmbH · €842</span></div>
+                  <div className="mt-3 font-serif text-3xl tracking-tight">Mumbai → Berlin</div>
+                  <div className="mt-1 text-[13px] text-muted-foreground">Best match: <span className="text-foreground">Mustermann GmbH · €842</span></div>
 
                   <div className="mt-10 space-y-6">
                     {[

@@ -33,6 +33,7 @@ import {
   Plus,
   Trash2,
   Copy,
+  Ship,
 } from "lucide-react";
 
 type FormMode = "form" | "email";
@@ -347,20 +348,35 @@ const Index = () => {
               to the right carrier — whether it's a single pallet across town, or twenty pallets across the continent.
             </p>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="rounded-3xl border border-border/60 bg-card/40 backdrop-blur-sm divide-y divide-border/60">
             {[
-              { icon: Package, title: "Parcels", note: "0–30 kg", desc: "Door-to-door or drop-off." },
-              { icon: Box, title: "Pallets", note: "EU + half", desc: "Liftgate and indoor delivery." },
-              { icon: Truck, title: "Road freight", note: "LTL & FTL", desc: "Domestic and cross-border." },
-              { icon: Plane, title: "Air & sea", note: "Worldwide", desc: "Customs handled end-to-end." },
+              {
+                icon: Truck,
+                title: "Road",
+                desc: "Pallets and full truckloads across Europe and within India — domestic and cross-border.",
+              },
+              {
+                icon: Plane,
+                title: "Air",
+                desc: "Time-critical freight between Europe and India, with customs handled end-to-end.",
+              },
+              {
+                icon: Ship,
+                title: "Sea",
+                desc: "FCL and LCL container shipping on the Europe ↔ India trade lanes.",
+              },
             ].map((s) => (
-              <div key={s.title} className="rounded-2xl border border-border/60 bg-card/40 p-6 backdrop-blur-sm transition-all hover:border-brand/30">
-                <s.icon className="h-5 w-5 text-brand/80" strokeWidth={1.5} />
-                <div className="mt-8 flex items-baseline justify-between">
-                  <h3 className="text-[17px] font-medium tracking-tight">{s.title}</h3>
-                  <span className="font-mono text-[11px] text-muted-foreground">{s.note}</span>
+              <div key={s.title} className="flex items-start gap-5 p-7 transition-colors hover:bg-secondary/40">
+                <div className="mt-0.5 flex h-10 w-10 flex-none items-center justify-center rounded-full border border-border/60 bg-background">
+                  <s.icon className="h-4 w-4 text-brand" strokeWidth={1.5} />
                 </div>
-                <p className="mt-1.5 text-[14px] font-light text-muted-foreground">{s.desc}</p>
+                <div className="min-w-0">
+                  <div className="flex items-baseline gap-3">
+                    <h3 className="text-[18px] font-medium tracking-tight">{s.title}</h3>
+                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">EU · India</span>
+                  </div>
+                  <p className="mt-1.5 text-[14px] font-light leading-relaxed text-muted-foreground">{s.desc}</p>
+                </div>
               </div>
             ))}
           </div>

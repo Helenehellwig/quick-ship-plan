@@ -338,19 +338,16 @@ const Index = () => {
                 step: "01",
                 title: "Tell us what & where",
                 desc: "Fill out the form or send us an email with all your shipment details — whichever is easiest.",
-                accent: "Form or email",
               },
               {
                 step: "02",
                 title: "Carriers bid",
                 desc: "Verified European carriers bid on your shipment, and we find the optimal match — fast.",
-                accent: "Optimal match",
               },
               {
                 step: "03",
                 title: "Confirm & ship",
                 desc: "Confirm your match and everything gets picked up and delivered exactly as you requested.",
-                accent: "Door to door",
               },
             ].map((s, i) => (
               <div
@@ -365,11 +362,6 @@ const Index = () => {
 
                 <h3 className="text-[22px] font-medium tracking-tight">{s.title}</h3>
                 <p className="mt-2.5 text-[15px] font-light leading-relaxed text-muted-foreground">{s.desc}</p>
-
-                <div className="mt-6 flex items-center gap-2 border-t border-border/50 pt-4 text-[12.5px] text-muted-foreground">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-brand" />
-                  <span>{s.accent}</span>
-                </div>
               </div>
             ))}
           </div>

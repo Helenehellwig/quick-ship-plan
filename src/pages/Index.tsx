@@ -311,6 +311,7 @@ const Index = () => {
 
       {/* HOW IT WORKS */}
       <section id="how" className="relative py-32">
+        <div className="pointer-events-none absolute left-1/2 top-1/3 -z-10 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-brand/[0.05] blur-[160px]" />
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-20 text-center">
             <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-brand">How it works</span>
@@ -318,37 +319,68 @@ const Index = () => {
               Three steps. <span className="text-muted-foreground">From request to delivered.</span>
             </h2>
           </div>
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="relative grid gap-6 md:grid-cols-3">
+            {/* Connecting line */}
+            <div className="pointer-events-none absolute left-0 right-0 top-[88px] hidden md:block">
+              <svg className="w-full" height="2" preserveAspectRatio="none" viewBox="0 0 100 2">
+                <line
+                  x1="8" y1="1" x2="92" y2="1"
+                  stroke="hsl(var(--brand))"
+                  strokeWidth="0.4"
+                  strokeDasharray="1.2 1.2"
+                  opacity="0.45"
+                />
+              </svg>
+            </div>
+
             {[
               {
                 step: "01",
                 title: "Tell us what & where",
                 desc: "Fill out the form or send us an email with all your shipment details — whichever is easiest.",
                 icon: Package,
+                accent: "Form or email",
               },
               {
                 step: "02",
                 title: "Carriers bid",
                 desc: "Verified European carriers bid on your shipment, and we find the optimal match — fast.",
                 icon: Zap,
+                accent: "Optimal match",
               },
               {
                 step: "03",
                 title: "Confirm & ship",
                 desc: "Confirm your match and everything gets picked up and delivered exactly as you requested.",
                 icon: Truck,
+                accent: "Door to door",
               },
-            ].map((s) => (
+            ].map((s, i) => (
               <div
                 key={s.step}
-                className="group relative overflow-hidden rounded-3xl border border-border/60 bg-card/40 p-8 backdrop-blur-sm transition-colors hover:border-brand/30"
+                className="group relative flex flex-col rounded-3xl border border-border/60 bg-card/70 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_30px_80px_-30px_hsl(var(--brand)/0.25)]"
               >
-                <div className="mb-10 flex items-center justify-between">
-                  <span className="font-mono text-[11px] tracking-wider text-muted-foreground">{s.step}</span>
-                  <s.icon className="h-4 w-4 text-brand/80" strokeWidth={1.5} />
+                {/* Numbered circle floating on the connector line */}
+                <div className="relative z-10 mb-8 flex h-16 w-16 items-center justify-center">
+                  <div className="absolute inset-0 rounded-full bg-brand/10 blur-xl transition-opacity group-hover:opacity-100 opacity-60" />
+                  <div className="relative grid h-16 w-16 place-items-center rounded-full border border-brand/30 bg-background shadow-[0_8px_24px_-8px_hsl(var(--brand)/0.4)]">
+                    <s.icon className="h-6 w-6 text-brand" strokeWidth={1.6} />
+                  </div>
+                  <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-foreground text-[10px] font-mono font-medium text-background">
+                    {i + 1}
+                  </span>
                 </div>
+
+                <span className="mb-2 inline-flex w-fit items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.06] px-2.5 py-0.5 text-[10.5px] font-medium uppercase tracking-[0.14em] text-brand">
+                  Step {s.step}
+                </span>
                 <h3 className="text-[22px] font-medium tracking-tight">{s.title}</h3>
                 <p className="mt-2.5 text-[15px] font-light leading-relaxed text-muted-foreground">{s.desc}</p>
+
+                <div className="mt-6 flex items-center gap-2 border-t border-border/50 pt-4 text-[12.5px] text-muted-foreground">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-brand" />
+                  <span>{s.accent}</span>
+                </div>
               </div>
             ))}
           </div>

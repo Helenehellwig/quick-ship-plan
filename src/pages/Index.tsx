@@ -338,21 +338,18 @@ const Index = () => {
                 step: "01",
                 title: "Tell us what & where",
                 desc: "Fill out the form or send us an email with all your shipment details — whichever is easiest.",
-                icon: Package,
                 accent: "Form or email",
               },
               {
                 step: "02",
                 title: "Carriers bid",
                 desc: "Verified European carriers bid on your shipment, and we find the optimal match — fast.",
-                icon: Zap,
                 accent: "Optimal match",
               },
               {
                 step: "03",
                 title: "Confirm & ship",
                 desc: "Confirm your match and everything gets picked up and delivered exactly as you requested.",
-                icon: Truck,
                 accent: "Door to door",
               },
             ].map((s, i) => (
@@ -360,20 +357,12 @@ const Index = () => {
                 key={s.step}
                 className="group relative flex flex-col rounded-3xl border border-border/60 bg-card/70 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_30px_80px_-30px_hsl(var(--brand)/0.25)]"
               >
-                {/* Numbered circle floating on the connector line */}
-                <div className="relative z-10 mb-8 flex h-16 w-16 items-center justify-center">
-                  <div className="absolute inset-0 rounded-full bg-brand/10 blur-xl transition-opacity group-hover:opacity-100 opacity-60" />
-                  <div className="relative grid h-16 w-16 place-items-center rounded-full border border-brand/30 bg-background shadow-[0_8px_24px_-8px_hsl(var(--brand)/0.4)]">
-                    <s.icon className="h-6 w-6 text-brand" strokeWidth={1.6} />
-                  </div>
-                  <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-foreground text-[10px] font-mono font-medium text-background">
-                    {i + 1}
-                  </span>
+                {/* Big number badge floating on the connector line */}
+                <div className="relative z-10 mb-8 grid h-20 w-20 place-items-center rounded-full border border-brand/30 bg-background shadow-[0_8px_24px_-8px_hsl(var(--brand)/0.4)]">
+                  <div className="absolute inset-0 -z-10 rounded-full bg-brand/10 blur-xl opacity-60" />
+                  <span className="font-serif text-5xl font-normal leading-none text-brand">{i + 1}</span>
                 </div>
 
-                <span className="mb-2 inline-flex w-fit items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.06] px-2.5 py-0.5 text-[10.5px] font-medium uppercase tracking-[0.14em] text-brand">
-                  Step {s.step}
-                </span>
                 <h3 className="text-[22px] font-medium tracking-tight">{s.title}</h3>
                 <p className="mt-2.5 text-[15px] font-light leading-relaxed text-muted-foreground">{s.desc}</p>
 

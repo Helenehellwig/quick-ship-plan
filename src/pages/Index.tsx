@@ -391,22 +391,18 @@ const Index = () => {
               {
                 icon: Truck,
                 title: "Road",
-                tag: "Domestic & cross-border",
                 desc: "Pallets and full truckloads across Europe and within India.",
                 stat: "LTL · FTL",
               },
               {
                 icon: Plane,
                 title: "Air",
-                tag: "Time-critical",
                 desc: "Express freight between Europe and India with customs handled end-to-end.",
-                stat: "3–6 days",
                 featured: true,
               },
               {
                 icon: Ship,
                 title: "Sea",
-                tag: "Built to scale",
                 desc: "FCL and LCL containers on the Europe ↔ India trade lanes.",
                 stat: "FCL · LCL",
               },
@@ -427,14 +423,15 @@ const Index = () => {
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border/60 bg-background shadow-sm">
                     <s.icon className="h-5 w-5 text-brand" strokeWidth={1.5} />
                   </div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                    {s.stat}
-                  </span>
+                  {s.stat && (
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                      {s.stat}
+                    </span>
+                  )}
                 </div>
 
                 <div className="relative mt-12">
-                  <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-brand/80">{s.tag}</div>
-                  <h3 className="mt-2 text-[28px] font-medium tracking-display">{s.title}</h3>
+                  <h3 className="text-[28px] font-medium tracking-display">{s.title}</h3>
                   <p className="mt-3 text-[14.5px] font-light leading-relaxed text-muted-foreground">{s.desc}</p>
                 </div>
 

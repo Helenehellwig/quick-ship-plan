@@ -171,7 +171,7 @@ const Index = () => {
                   {/* Contact */}
                   <FormField className="md:col-span-4" icon={Mail} label="Your email" type="email" placeholder="you@company.com" required />
                   <FormField className="md:col-span-4" icon={User} label="Full name" placeholder="Anna Schmidt" required />
-                  <FormField className="md:col-span-4" icon={FileText} label="Order name" placeholder="e.g. Berlin → Rotterdam #14" required />
+                  <FormField className="md:col-span-4" icon={FileText} label="Order name" placeholder="e.g. Order #14" required />
 
                   {/* Route */}
                   <FormField className="md:col-span-5" icon={MapPin} label="From" placeholder="Pickup address, city, country" required />
@@ -434,14 +434,6 @@ const Index = () => {
                   <h3 className="text-[28px] font-medium tracking-display">{s.title}</h3>
                   <p className="mt-3 text-[14.5px] font-light leading-relaxed text-muted-foreground">{s.desc}</p>
                 </div>
-
-                <div className="relative mt-10 flex items-center gap-2 text-[12px] font-medium text-foreground/80">
-                  <span>Berlin</span>
-                  <div className="relative h-px flex-1 bg-gradient-to-r from-border via-brand/60 to-border">
-                    <span className="absolute left-1/2 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand shadow-[0_0_0_4px_hsl(186_85%_47%/0.15)]" />
-                  </div>
-                  <span>Mumbai</span>
-                </div>
               </div>
             ))}
           </div>
@@ -486,7 +478,7 @@ const Index = () => {
                     <span className="h-1.5 w-1.5 animate-pulse-glow rounded-full bg-brand" />
                     Live · MV-48201
                   </div>
-                  <div className="mt-3 font-serif text-3xl tracking-tight">Mumbai → Berlin</div>
+                  <div className="mt-3 font-serif text-3xl tracking-tight">Shipment in progress</div>
                   <div className="mt-1 text-[13px] text-muted-foreground">Best match: <span className="text-foreground">Mustermann GmbH · €842</span></div>
 
                   <div className="mt-10 space-y-6">
